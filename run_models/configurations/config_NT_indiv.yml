@@ -1,0 +1,31 @@
+model_name: NT
+
+partition_data_path: "../data/all_partition_data.csv"
+consensus_root: "../data/consensus"
+ref_genome_path: "../data/hs37d5.fa"
+
+train_data: "individuals"  # set as "individuals" or "reference" to train on individuals or references 
+sample_allele: both
+
+#train_data: "reference"
+#sample_allele: NA
+
+sampler: random
+seq_len: 11000
+batch_size: 8
+num_epochs: 40
+learning_rate: 1e-4
+
+
+model_save_root: "./save_models/" # the saved model root for all models, change it as preferred.
+pretrained_model_path: "" # the model path for pretrained model, if not using pretrained model, set as 
+
+
+
+# training subset genes and individuals 
+selected_gene: "../data/random_genes.txt" 
+train_sample: "../data/train_50_indivs.txt"
+test_sample: "../data/test_100_indivs.txt"
+load_model: true
+target_name: log_TPM
+preCalculatedEmbed_root: ""
